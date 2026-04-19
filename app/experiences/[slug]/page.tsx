@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getExperience } from "@/lib/experiences";
+import { experiences, getExperience } from "@/lib/experiences";
 import { ExperienceDetail } from "@/components/experience-detail";
 
 type ExperiencePageProps = {
@@ -23,6 +23,10 @@ export async function generateMetadata({
     title: `${experience.title} | Portfolio`,
     description: experience.intro,
   };
+}
+
+export async function generateStaticParams() {
+  return experiences.map((experience) => ({ slug: experience.slug }));
 }
 
 export default async function ExperiencePage({ params }: ExperiencePageProps) {

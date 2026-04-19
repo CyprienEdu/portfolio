@@ -58,6 +58,7 @@ const carouselSummary = [
 ];
 
 export function PortfolioPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const pageRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
@@ -595,7 +596,7 @@ export function PortfolioPage() {
                       }}
                     >
                       <Image
-                        src={experience.image}
+                        src={`${basePath}${experience.image}`}
                         alt={experience.title}
                         fill
                         sizes="(max-width: 640px) 40vw, 24vw"

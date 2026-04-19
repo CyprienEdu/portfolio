@@ -47,6 +47,7 @@ const copy = {
 };
 
 export function ExperienceDetail({ experience }: ExperienceDetailProps) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [language, setLanguage] = useState<Language>("fr");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderOnDark, setIsHeaderOnDark] = useState(false);
@@ -102,7 +103,7 @@ export function ExperienceDetail({ experience }: ExperienceDetailProps) {
   const details =
     language === "fr" ? experience.details : experience.detailsEn ?? experience.details;
   const labels = copy[language];
-  const pdfUrl = experience.pdf ? encodeURI(experience.pdf) : null;
+  const pdfUrl = experience.pdf ? encodeURI(`${basePath}${experience.pdf}`) : null;
 
   return (
     <div className="relative">
@@ -202,7 +203,7 @@ export function ExperienceDetail({ experience }: ExperienceDetailProps) {
           {experience.slug !== "cv" ? (
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[rgba(35,35,35,0.24)]">
               <Image
-                src={experience.image}
+                src={`${basePath}${experience.image}`}
                 alt={title}
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"

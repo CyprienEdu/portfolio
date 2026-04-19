@@ -1,0 +1,281 @@
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { [33mPortfolioPage[0m } [36mfrom[0m [32m"@/components/portfolio-page"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { [33mSmoothScroll[0m } [36mfrom[0m [32m"@/components/smooth-scroll"[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mHome[0m() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] Uncaught Error: ./app/page.tsx:1:1
+Module not found: Can't resolve '@/components/portfolio-page'
+> 1 | import { PortfolioPage } from "@/components/portfolio-page";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { SmoothScroll } from "@/components/smooth-scroll";
+  3 |
+  4 | export default function Home() {
+
+Import map: aliased to relative './components/portfolio-page' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (Error: ./app/page.tsx:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (Error: (./app/page.tsx:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+[browser] Uncaught Error: Objects are not valid as a React child (found: object with keys {fr, en}). If you meant to render a collection of children, use an array instead.
+    at Home (app\page.tsx:7:7)
+   5 |   return (
+   6 |     <SmoothScroll>
+>  7 |       <PortfolioPage />
+     |       ^
+   8 |     </SmoothScroll>
+   9 |   );
+  10 | }
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+^C^C

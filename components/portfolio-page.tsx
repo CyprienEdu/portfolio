@@ -204,7 +204,7 @@ export function PortfolioPage() {
       });
 
       ScrollTrigger.create({
-        trigger: "#experiences",
+        trigger: railRef.current,
         start: "top top",
         end: "bottom bottom",
         onEnter: () => setIsHeaderOnDark(true),
@@ -516,7 +516,8 @@ export function PortfolioPage() {
                   : "hover:bg-[rgba(21,21,20,0.08)]"
               }`}
             >
-              <span className="pr-1 inline-flex">{FlagFR()}</span>FR
+              <span className="pr-1 inline-flex">{FlagFR()}</span>
+              <span className="hidden sm:inline">FR</span>
             </button>
             <button
               type="button"
@@ -528,7 +529,8 @@ export function PortfolioPage() {
                   : "hover:bg-[rgba(21,21,20,0.08)]"
               }`}
             >
-              <span className="pr-1 inline-flex">{FlagEN()}</span>EN
+              <span className="pr-1 inline-flex">{FlagEN()}</span>
+              <span className="hidden sm:inline">EN</span>
             </button>
           </div>
 
@@ -546,7 +548,7 @@ export function PortfolioPage() {
           </nav>
 
           <nav
-            className={`pointer-events-auto flex gap-5 text-sm font-medium transition-colors duration-300 sm:hidden ${
+            className={`pointer-events-auto flex flex-col items-end gap-1 text-sm font-medium transition-colors duration-300 sm:hidden ${
               headerOnDark ? "text-[var(--paper)]" : "text-[var(--foreground)]"
             }`}
           >
@@ -560,7 +562,7 @@ export function PortfolioPage() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-[1180px] px-5 pb-28 sm:px-10">
+      <main className="mx-auto w-full max-w-[1180px] px-5 pb-28 pt-24 sm:px-10 sm:pt-0">
         <section
           id="home"
           data-hero

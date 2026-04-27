@@ -178,6 +178,8 @@ export function PortfolioPage() {
     };
 
     const context = gsap.context(() => {
+      const enableSnap = window.innerWidth >= 640;
+
       gsap.from("[data-hero-line]", {
         yPercent: 100,
         opacity: 0,
@@ -197,12 +199,14 @@ export function PortfolioPage() {
         },
       });
 
-      ScrollTrigger.create({
-        trigger: "#home",
-        start: "top top",
-        end: "bottom top",
-        onLeave: () => snapToSection("experiences"),
-      });
+      if (enableSnap) {
+        ScrollTrigger.create({
+          trigger: "#home",
+          start: "top top",
+          end: "bottom top",
+          onLeave: () => snapToSection("experiences"),
+        });
+      }
 
       ScrollTrigger.create({
         trigger: railRef.current,
@@ -214,47 +218,49 @@ export function PortfolioPage() {
         onLeaveBack: () => setIsHeaderOnDark(false),
       });
 
-      ScrollTrigger.create({
-        trigger: "#experiences",
-        start: "bottom 78%",
-        end: "bottom 40%",
-        onLeave: () => snapToSection("capabilities"),
-      });
+      if (enableSnap) {
+        ScrollTrigger.create({
+          trigger: "#experiences",
+          start: "bottom 78%",
+          end: "bottom 40%",
+          onLeave: () => snapToSection("capabilities"),
+        });
 
-      ScrollTrigger.create({
-        trigger: "#capabilities",
-        start: "top 78%",
-        end: "top 35%",
-        onEnterBack: () => snapToSection("experiences"),
-      });
+        ScrollTrigger.create({
+          trigger: "#capabilities",
+          start: "top 78%",
+          end: "top 35%",
+          onEnterBack: () => snapToSection("experiences"),
+        });
 
-      ScrollTrigger.create({
-        trigger: "#capabilities",
-        start: "bottom 78%",
-        end: "bottom 40%",
-        onLeave: () => snapToSection("experience-list"),
-      });
+        ScrollTrigger.create({
+          trigger: "#capabilities",
+          start: "bottom 78%",
+          end: "bottom 40%",
+          onLeave: () => snapToSection("experience-list"),
+        });
 
-      ScrollTrigger.create({
-        trigger: "#experience-list",
-        start: "top 78%",
-        end: "top 35%",
-        onEnterBack: () => snapToSection("capabilities"),
-      });
+        ScrollTrigger.create({
+          trigger: "#experience-list",
+          start: "top 78%",
+          end: "top 35%",
+          onEnterBack: () => snapToSection("capabilities"),
+        });
 
-      ScrollTrigger.create({
-        trigger: "#experience-list",
-        start: "bottom 78%",
-        end: "bottom 40%",
-        onLeave: () => snapToSection("contact"),
-      });
+        ScrollTrigger.create({
+          trigger: "#experience-list",
+          start: "bottom 78%",
+          end: "bottom 40%",
+          onLeave: () => snapToSection("contact"),
+        });
 
-      ScrollTrigger.create({
-        trigger: "#contact",
-        start: "top 78%",
-        end: "top 35%",
-        onEnterBack: () => snapToSection("experience-list"),
-      });
+        ScrollTrigger.create({
+          trigger: "#contact",
+          start: "top 78%",
+          end: "top 35%",
+          onEnterBack: () => snapToSection("experience-list"),
+        });
+      }
 
       gsap.utils.toArray<HTMLElement>("[data-experience-card]").forEach((card) => {
         gsap.from(card, {

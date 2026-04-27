@@ -98,6 +98,7 @@ export function PortfolioPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeExperience, setActiveExperience] = useState<Experience | null>(null);
   const [openExperienceSlug, setOpenExperienceSlug] = useState<string | null>(null);
+  const [showTapHint, setShowTapHint] = useState(false);
   const headerOnDark = isHeaderOnDark || isSummaryPinned;
   const featuredExperiences = experiences.filter((experience) =>
     featuredSlugs.includes(experience.slug)
@@ -401,6 +402,20 @@ export function PortfolioPage() {
       setLanguage(stored);
     }
   }, []);
+
+  useEffect(() => {
+    const hintDismissed = window.sessionStorage.getItem("carouselTapHintDismissed");
+    const isSmallScreen = window.innerWidth < 640;
+    const isTouch = window.matchMedia("(hover: none)").matches;
+    if ((isSmallScreen || isTouch) && !hintDismissed) {
+      setShowTapHint(true);
+    }
+  }, []);
+
+  const dismissTapHint = () => {
+    setShowTapHint(false);
+    window.sessionStorage.setItem("carouselTapHintDismissed", "true");
+  };
 
   const handleRailPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "mouse" && event.button !== 0) {
@@ -711,7 +726,7 @@ export function PortfolioPage() {
                     <button
                       type="button"
                       aria-label={`Open ${experience.title}`}
-                      className={`relative block h-[46vh] min-h-[265px] overflow-hidden bg-[#0d1016] transition-all duration-500 ${
+                      className={`relative block h-[46vh] min-h-[265px] cursor-pointer overflow-hidden bg-[#0d1016] transition-all duration-500 ${
                         isHovered
                           ? "w-[25.5vw] min-w-[116px] max-w-[286px]"
                           : "w-[22.1vw] min-w-[99px] max-w-[238px]"
@@ -725,9 +740,15 @@ export function PortfolioPage() {
                           return;
                         }
                         setHoveredId(null);
+                        if (showTapHint) {
+                          dismissTapHint();
+                        }
                         setActiveExperience(experience);
                       }}
                     >
+                      <span className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-[rgba(246,242,232,0.5)] bg-[rgba(8,11,16,0.7)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--paper)] opacity-0 transition duration-300 group-hover:opacity-100">
+                        {language === "fr" ? "Voir le detail" : "View details"}
+                      </span>
                       <Image
                         src={`${basePath}${experience.image}`}
                         alt={experience.title}
@@ -748,7 +769,22 @@ export function PortfolioPage() {
                 );
               })}
             </div>
+
+            {showTapHint ? (
+              <button
+                type="button"
+                onClick={dismissTapHint}
+                className="pointer-events-auto absolute inset-0 z-20 flex items-center justify-center bg-[rgba(8,11,16,0.35)] text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--paper)] sm:hidden"
+              >
+                {language === "fr" ? "Tap pour ouvrir" : "Tap to open"}
+              </button>
+            ) : null}
           </div>
+          <p className="section-line py-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+            {language === "fr"
+              ? "3 projets selectionnes — clique pour en savoir plus"
+              : "3 selected projects — click to learn more"}
+          </p>
         </section>
 
         <section id="capabilities" className="section-line py-14 sm:py-16">
@@ -789,6 +825,7 @@ export function PortfolioPage() {
               const intro = language === "fr" ? experience.intro : experience.introEn ?? experience.intro;
               const details =
                 language === "fr" ? experience.details : experience.detailsEn ?? experience.details;
+              const pdfUrl = experience.pdf ? encodeURI(`${basePath}${experience.pdf}`) : null;
               const isOpen = openExperienceSlug === experience.slug;
 
               return (
@@ -825,6 +862,28 @@ export function PortfolioPage() {
                           <li key={detail}>{detail}</li>
                         ))}
                       </ul>
+                      {pdfUrl ? (
+                        <div className="space-y-4">
+                          <a
+                            href={pdfUrl}
+                            download
+                            className="link-underline text-sm font-semibold uppercase tracking-[0.12em]"
+                          >
+                            {language === "fr" ? "Telecharger le CV" : "Download resume"}
+                          </a>
+                          <div className="h-[60vh] w-full overflow-hidden rounded-2xl border border-[rgba(35,35,35,0.2)] bg-[var(--paper)]">
+                            <iframe
+                              title={
+                                language === "fr"
+                                  ? "CV de Cyprien Rubio"
+                                  : "Cyprien Rubio resume"
+                              }
+                              src={pdfUrl}
+                              className="h-full w-full"
+                            />
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
                   ) : null}
                 </div>

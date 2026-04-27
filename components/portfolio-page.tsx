@@ -99,6 +99,7 @@ export function PortfolioPage() {
   const [activeExperience, setActiveExperience] = useState<Experience | null>(null);
   const [openExperienceSlug, setOpenExperienceSlug] = useState<string | null>(null);
   const [showTapHint, setShowTapHint] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const headerOnDark = isHeaderOnDark || isSummaryPinned;
   const featuredExperiences = experiences.filter((experience) =>
     featuredSlugs.includes(experience.slug)
@@ -153,9 +154,12 @@ export function PortfolioPage() {
   };
 
   useEffect(() => {
-    if (!pageRef.current || !trackRef.current || !railRef.current) {
+    if (!pageRef.current) {
       return;
     }
+
+    const hasCarousel = !!trackRef.current && !!railRef.current;
+    const enableCarousel = window.innerWidth >= 640 && hasCarousel;
 
     let removeTicker: (() => void) | null = null;
 
@@ -178,8 +182,6 @@ export function PortfolioPage() {
     };
 
     const context = gsap.context(() => {
-      const enableSnap = window.innerWidth >= 640;
-
       gsap.from("[data-hero-line]", {
         yPercent: 100,
         opacity: 0,
@@ -199,14 +201,17 @@ export function PortfolioPage() {
         },
       });
 
-      if (enableSnap) {
-        ScrollTrigger.create({
-          trigger: "#home",
-          start: "top top",
-          end: "bottom top",
-          onLeave: () => snapToSection("experiences"),
-        });
+      const isDesktop = window.matchMedia("(min-width: 640px)").matches;
+      if (!isDesktop) {
+        return;
       }
+
+      ScrollTrigger.create({
+        trigger: "#home",
+        start: "top top",
+        end: "bottom top",
+        onLeave: () => snapToSection("experiences"),
+      });
 
       ScrollTrigger.create({
         trigger: railRef.current,
@@ -218,49 +223,47 @@ export function PortfolioPage() {
         onLeaveBack: () => setIsHeaderOnDark(false),
       });
 
-      if (enableSnap) {
-        ScrollTrigger.create({
-          trigger: "#experiences",
-          start: "bottom 78%",
-          end: "bottom 40%",
-          onLeave: () => snapToSection("capabilities"),
-        });
+      ScrollTrigger.create({
+        trigger: "#experiences",
+        start: "bottom 78%",
+        end: "bottom 40%",
+        onLeave: () => snapToSection("capabilities"),
+      });
 
-        ScrollTrigger.create({
-          trigger: "#capabilities",
-          start: "top 78%",
-          end: "top 35%",
-          onEnterBack: () => snapToSection("experiences"),
-        });
+      ScrollTrigger.create({
+        trigger: "#capabilities",
+        start: "top 78%",
+        end: "top 35%",
+        onEnterBack: () => snapToSection("experiences"),
+      });
 
-        ScrollTrigger.create({
-          trigger: "#capabilities",
-          start: "bottom 78%",
-          end: "bottom 40%",
-          onLeave: () => snapToSection("experience-list"),
-        });
+      ScrollTrigger.create({
+        trigger: "#capabilities",
+        start: "bottom 78%",
+        end: "bottom 40%",
+        onLeave: () => snapToSection("experience-list"),
+      });
 
-        ScrollTrigger.create({
-          trigger: "#experience-list",
-          start: "top 78%",
-          end: "top 35%",
-          onEnterBack: () => snapToSection("capabilities"),
-        });
+      ScrollTrigger.create({
+        trigger: "#experience-list",
+        start: "top 78%",
+        end: "top 35%",
+        onEnterBack: () => snapToSection("capabilities"),
+      });
 
-        ScrollTrigger.create({
-          trigger: "#experience-list",
-          start: "bottom 78%",
-          end: "bottom 40%",
-          onLeave: () => snapToSection("contact"),
-        });
+      ScrollTrigger.create({
+        trigger: "#experience-list",
+        start: "bottom 78%",
+        end: "bottom 40%",
+        onLeave: () => snapToSection("contact"),
+      });
 
-        ScrollTrigger.create({
-          trigger: "#contact",
-          start: "top 78%",
-          end: "top 35%",
-          onEnterBack: () => snapToSection("experience-list"),
-        });
-      }
+      ScrollTrigger.create({
+        trigger: "#contact",
+        start: "top 78%",
+        end: "top 35%",
+        onEnterBack: () => snapToSection("experience-list"),
+      });
 
       gsap.utils.toArray<HTMLElement>("[data-experience-card]").forEach((card) => {
         gsap.from(card, {
@@ -275,68 +278,70 @@ export function PortfolioPage() {
         });
       });
 
-      const getDistance = () =>
-        Math.max(0, trackRef.current!.scrollWidth - railRef.current!.clientWidth);
-      const getEndPadding = () => Math.round(railRef.current!.clientWidth * 0.25);
-      let distance = getDistance() + getEndPadding();
-      railDistanceRef.current = distance;
-      let targetX = 0;
-      let currentX = 0;
-      let lastX = 0;
-      const quickSetTrack = gsap.quickSetter(trackRef.current, "x", "px");
-      const cardSetters = gsap.utils
-        .toArray<HTMLElement>("[data-experience-card]")
-        .map((card) => ({
-          setX: gsap.quickSetter(card, "x", "px"),
-          setScale: gsap.quickSetter(card, "scale"),
-          setFilter: gsap.quickSetter(card, "filter"),
-        }));
+      if (enableCarousel) {
+        const getDistance = () =>
+          Math.max(0, trackRef.current!.scrollWidth - railRef.current!.clientWidth);
+        const getEndPadding = () => Math.round(railRef.current!.clientWidth * 0.25);
+        let distance = getDistance() + getEndPadding();
+        railDistanceRef.current = distance;
+        let targetX = 0;
+        let currentX = 0;
+        let lastX = 0;
+        const quickSetTrack = gsap.quickSetter(trackRef.current, "x", "px");
+        const cardSetters = gsap.utils
+          .toArray<HTMLElement>("[data-experience-card]")
+          .map((card) => ({
+            setX: gsap.quickSetter(card, "x", "px"),
+            setScale: gsap.quickSetter(card, "scale"),
+            setFilter: gsap.quickSetter(card, "filter"),
+          }));
 
-      const railTrigger = ScrollTrigger.create({
-        trigger: railRef.current,
-        start: "top top",
-        end: () => `+=${distance * 1.2 + window.innerHeight * 0.85}`,
-        pin: true,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          targetX = -self.progress * distance;
-        },
-        onRefresh: (self) => {
-          distance = getDistance() + getEndPadding();
-          railDistanceRef.current = distance;
-          targetX = -self.progress * distance;
-          currentX = targetX;
-          lastX = targetX;
-          quickSetTrack(currentX);
-        },
-        onToggle: (self) => {
-          setIsSummaryPinned(self.isActive);
-          setIsHeaderOnDark(self.isActive);
-        },
-      });
-
-      railTriggerRef.current = railTrigger;
-
-      const tick = () => {
-        currentX = gsap.utils.interpolate(currentX, targetX, 0.05);
-        const velocity = currentX - lastX;
-        lastX = currentX;
-        quickSetTrack(currentX);
-
-        const drift = gsap.utils.clamp(-36, 36, velocity * -1.05);
-        const scale = gsap.utils.clamp(0.97, 1.05, 1 + Math.abs(velocity) / 420);
-        const blur = gsap.utils.clamp(0, 5, Math.abs(velocity) / 45);
-        cardSetters.forEach((setter) => {
-          setter.setX(drift);
-          setter.setScale(scale);
-          setter.setFilter(`blur(${blur.toFixed(2)}px)`);
+        const railTrigger = ScrollTrigger.create({
+          trigger: railRef.current,
+          start: "top top",
+          end: () => `+=${distance * 1.2 + window.innerHeight * 0.85}`,
+          pin: true,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            targetX = -self.progress * distance;
+          },
+          onRefresh: (self) => {
+            distance = getDistance() + getEndPadding();
+            railDistanceRef.current = distance;
+            targetX = -self.progress * distance;
+            currentX = targetX;
+            lastX = targetX;
+            quickSetTrack(currentX);
+          },
+          onToggle: (self) => {
+            setIsSummaryPinned(self.isActive);
+            setIsHeaderOnDark(self.isActive);
+          },
         });
-      };
 
-      gsap.ticker.add(tick);
-      removeTicker = () => {
-        gsap.ticker.remove(tick);
-      };
+        railTriggerRef.current = railTrigger;
+
+        const tick = () => {
+          currentX = gsap.utils.interpolate(currentX, targetX, 0.05);
+          const velocity = currentX - lastX;
+          lastX = currentX;
+          quickSetTrack(currentX);
+
+          const drift = gsap.utils.clamp(-36, 36, velocity * -1.05);
+          const scale = gsap.utils.clamp(0.97, 1.05, 1 + Math.abs(velocity) / 420);
+          const blur = gsap.utils.clamp(0, 5, Math.abs(velocity) / 45);
+          cardSetters.forEach((setter) => {
+            setter.setX(drift);
+            setter.setScale(scale);
+            setter.setFilter(`blur(${blur.toFixed(2)}px)`);
+          });
+        };
+
+        gsap.ticker.add(tick);
+        removeTicker = () => {
+          gsap.ticker.remove(tick);
+        };
+      }
     }, pageRef);
 
     window.addEventListener("pageshow", handlePageShow);
@@ -375,6 +380,10 @@ export function PortfolioPage() {
     };
 
     const preventTouchMove = (event: TouchEvent) => {
+      const target = event.target as Node | null;
+      if (modalRef.current && target && modalRef.current.contains(target)) {
+        return;
+      }
       event.preventDefault();
     };
 
@@ -410,10 +419,21 @@ export function PortfolioPage() {
   }, []);
 
   useEffect(() => {
+    const updateScreen = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    updateScreen();
+    window.addEventListener("resize", updateScreen);
+    return () => {
+      window.removeEventListener("resize", updateScreen);
+    };
+  }, []);
+
+  useEffect(() => {
     const hintDismissed = window.sessionStorage.getItem("carouselTapHintDismissed");
     const isSmallScreen = window.innerWidth < 640;
     const isTouch = window.matchMedia("(hover: none)").matches;
-    if ((isSmallScreen || isTouch) && !hintDismissed) {
+    if (!isSmallScreen && isTouch && !hintDismissed) {
       setShowTapHint(true);
     }
   }, []);
@@ -650,7 +670,7 @@ export function PortfolioPage() {
         </section>
 
         <section id="experiences" className="py-0">
-          <div className="section-line py-12 sm:py-14">
+          <div className="section-line hidden py-12 sm:block sm:py-14">
             <Reveal>
               <p className="eyebrow">{language === "fr" ? "Projets sélectionnés" : "Selected projects"}</p>
               <h2 className="display mt-3 text-4xl leading-[0.95] sm:text-5xl">
@@ -665,9 +685,52 @@ export function PortfolioPage() {
               </p>
             </Reveal>
           </div>
+          <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-[#080b10] text-[var(--paper)] sm:hidden">
+            <div className="px-5 py-10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[rgba(246,242,232,0.62)]">
+                {language === "fr" ? "Projets sélectionnés" : "Selected projects"}
+              </p>
+              <h2 className="display mt-3 text-3xl leading-[1.05]">
+                {language === "fr"
+                  ? "Trois expériences qui racontent mon positionnement."
+                  : "Three experiences that capture my positioning."}
+              </h2>
+              <p className="mt-3 text-sm text-[rgba(246,242,232,0.72)]">
+                {language === "fr"
+                  ? "Du terrain à la création de contenu, ces projets illustrent mon approche entre stratégie, exécution et impact."
+                  : "From hands-on work to content creation, these projects show my balance of strategy, execution, and impact."}
+              </p>
+            </div>
+            <div className="grid gap-4 px-5 pb-6">
+              {featuredExperiences.map((experience) => (
+                <button
+                  key={experience.slug}
+                  type="button"
+                  className="relative h-[220px] overflow-hidden rounded-2xl border border-[rgba(246,242,232,0.2)] bg-[#0d1016]"
+                  onClick={() => setActiveExperience(experience)}
+                >
+                  <Image
+                    src={`${basePath}${experience.image}`}
+                    alt={experience.title}
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                  <span className="pointer-events-none absolute bottom-3 left-3 rounded-full border border-[rgba(246,242,232,0.5)] bg-[rgba(8,11,16,0.7)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--paper)]">
+                    {language === "fr" ? "Voir le détail" : "View details"}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <p className="px-5 pb-8 text-xs font-semibold uppercase tracking-[0.2em] text-[rgba(246,242,232,0.6)]">
+              {language === "fr"
+                ? "3 projets sélectionnés — clique pour en savoir plus"
+                : "3 selected projects — click to learn more"}
+            </p>
+          </div>
           <div
             ref={railRef}
-            className={`carousel-rail relative left-1/2 right-1/2 -mx-[50vw] flex h-[100svh] min-h-[100svh] w-screen items-center overflow-hidden bg-[#080b10] ${
+            className={`carousel-rail relative left-1/2 right-1/2 -mx-[50vw] hidden h-[100svh] min-h-[100svh] w-screen items-center overflow-hidden bg-[#080b10] sm:flex ${
               isDragging ? "is-dragging" : ""
             }`}
             onPointerDown={handleRailPointerDown}
@@ -752,8 +815,8 @@ export function PortfolioPage() {
                         setActiveExperience(experience);
                       }}
                     >
-                      <span className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-[rgba(246,242,232,0.5)] bg-[rgba(8,11,16,0.7)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--paper)] opacity-0 transition duration-300 group-hover:opacity-100">
-                        {language === "fr" ? "Voir le detail" : "View details"}
+                      <span className="pointer-events-none absolute bottom-3 left-3 z-10 rounded-full border border-[rgba(246,242,232,0.5)] bg-[rgba(8,11,16,0.7)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--paper)] opacity-100 transition duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+                        {language === "fr" ? "Voir le détail" : "View details"}
                       </span>
                       <Image
                         src={`${basePath}${experience.image}`}
@@ -786,9 +849,9 @@ export function PortfolioPage() {
               </button>
             ) : null}
           </div>
-          <p className="section-line py-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+          <p className="section-line hidden py-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)] sm:block">
             {language === "fr"
-              ? "3 projets selectionnes — clique pour en savoir plus"
+              ? "3 projets sélectionnés — clique pour en savoir plus"
               : "3 selected projects — click to learn more"}
           </p>
         </section>
